@@ -29,3 +29,11 @@
 All images have to be tha same size
 
 ## If used in a project, credit is not needed but would be nice :)
+
+## Changelog
+
+**1.0.1**:
+fixed error (read desc of commit fe84746)
+
+**1.0.0**:
+first Commit
