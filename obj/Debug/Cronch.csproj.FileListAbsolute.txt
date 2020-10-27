@@ -1,0 +1,11 @@
+C:\Users\owenj\source\repos\Cronch\Cronch\bin\Debug\Cronch.exe.config
+C:\Users\owenj\source\repos\Cronch\Cronch\bin\Debug\Cronch.exe
+C:\Users\owenj\source\repos\Cronch\Cronch\bin\Debug\Cronch.pdb
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.csprojAssemblyReference.cache
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.Properties.Resources.resources
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.csproj.GenerateResource.cache
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.csproj.CoreCompileInputs.cache
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.exe
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.pdb
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.Form.resources
+C:\Users\owenj\source\repos\Cronch\Cronch\obj\Debug\Cronch.About.resources
