@@ -27,3 +27,5 @@
 ## Notes
 
 All images have to be tha same size
+
+## If used in a project, credit is not needed but would be nice :)
