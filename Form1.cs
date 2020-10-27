@@ -201,8 +201,8 @@ namespace Cronch
                 allImageHeights.Add(image.Height); //gets widths and heights
             }
 
-            imageWidth = allImageWidths.Max() * columns; //gets the max height (does not matter they should be the same) and multiplies it by the colums
-            imageHeight = allImageHeights.Max() * rows; //gets the max height (does not matter they should be the same) and multiplies it by the rows
+            imageWidth = allImageWidths.Max() * rows; //gets the max height (does not matter they should be the same) and multiplies it by the rows
+            imageHeight = allImageHeights.Max() * columns; //gets the max height (does not matter they should be the same) and multiplies it by the columns
 
             //Debug.WriteLine(imageHeight);
             //Debug.WriteLine(imageWidth); 
