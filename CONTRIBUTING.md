@@ -55,4 +55,13 @@ if (!boolName) //yes
 
 8: If you are not sure how to format, look at my code :)
 
-9: Have fun!
+9: Make a new branch with your name
+
+10: Versioning goes like this:<br>
+**1** = Major (big update, big new feature) <br>
+.<br>
+**0** = Medium (small new feature)<br>
+.<br>
+**0** = Minor (small bug fix, typo)
+
+11: Have fun!
