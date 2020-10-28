@@ -1,6 +1,6 @@
 # Cronch
 
-[Cronch](Cronch\Resources\cronch.gif)
+![Cronch](Cronch/Resources/cronch.gif)
 
 ### Cronch is a sprite sheet creator inspired by [crunch](https://github.com/ChevyRay/crunch) (I actually made it because I could not get it working)
 
