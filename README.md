@@ -32,6 +32,9 @@ All images have to be tha same size
 
 ## Changelog
 
+**1.0.3**:<br>
+(hopefully)fixed a bug that would break the progress bar and stop the program
+
 **1.0.2**: <br>
 changed temp directory to `C:\Users\name\AppData\Roaming\CronchTemp\`<br>
 added multi-select images and removal<br>
