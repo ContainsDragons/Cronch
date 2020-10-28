@@ -26,13 +26,23 @@
 
 10: Your done! :D
 
-## Notes
+## Notes:
 
-All images have to be tha same size
+All images have to be the same size
 
-## If used in a project, credit is not needed but would be nice :)
+## Upcoming Features:
 
-## Changelog
+All images can bu differnt sizes
+
+Sprite rotation
+
+Animation viewer
+
+Better algorithm for packing sprites
+
+# If used in a project, credit is not needed but would be nice :)
+
+## Changelog:
 
 **1.0.3**:<br>
 (hopefully)fixed a bug that would break the progress bar and stop the program
