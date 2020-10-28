@@ -28,7 +28,7 @@
 
 All images have to be the same size
 
-## Upcoming:
+## Upcoming Features:
 
 All images can bu differnt sizes
 
