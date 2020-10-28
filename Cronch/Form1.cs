@@ -224,7 +224,7 @@ namespace Cronch
         private void MergeImages()
         {
             //loaderbar
-            progressBar1.Maximum = listOfImages.Count();
+            progressBar1.Maximum = listOfImages.Count() + 1;
             progressBar1.Minimum = 0;
             progressBar1.Visible = true;
             //get the first image to check for all sizes
