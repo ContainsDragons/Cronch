@@ -32,8 +32,10 @@ All images have to be tha same size
 
 ## Changelog
 
-**1.0.0**: 
+**1.0.2**: 
 changed temp directory to `C:\Users\name\AppData\Roaming\CronchTemp\`
+added multi-select images and removal
+changed `folderBrowserDialogue` to a `saveFileDialogue`
 
 **1.0.1**:
 fixed error (read desc of commit fe84746)

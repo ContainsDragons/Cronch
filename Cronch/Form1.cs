@@ -129,14 +129,16 @@ namespace Cronch
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            string selectedItem = (string)imageList.SelectedItem; //gets selected item
-            if (selectedItem == null)
+            if (imageList.SelectedItems == null)
             {
                 return;
             }
+            foreach (var item in imageList.SelectedItems)//gets selected items
+            {
+                filePaths.RemoveAt(fileNames.IndexOf((string)item)); //takes away the string based on the index
+                fileNames.Remove((string)item);
+            }
 
-            filePaths.RemoveAt(fileNames.IndexOf(selectedItem)); //takes away the string based on the index
-            fileNames.Remove(selectedItem);
             imageList.Items.Clear(); //clears the list
             foreach (var file in fileNames)
             {
@@ -282,11 +284,11 @@ namespace Cronch
         {
             if (File.Exists($"{tempDirectory}\\tempSheet.png"))
             {
-                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                saveFileDialog1.Filter = "Images (*.JPG;*.PNG)|*.JPG;*.PNG";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     Image image = Image.FromFile($"{tempDirectory}\\tempSheet.png");
-                    image.Save($"{folderBrowserDialog1.SelectedPath}\\SpriteSheet.png", ImageFormat.Png); //save it
-
+                    image.Save($"{saveFileDialog1.FileName}", ImageFormat.Png); //save it
                 }
             }
             else

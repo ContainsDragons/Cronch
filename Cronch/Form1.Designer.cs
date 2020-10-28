@@ -48,12 +48,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.openImages = new System.Windows.Forms.OpenFileDialog();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.finalDimentions = new System.Windows.Forms.Label();
             this.info = new System.Windows.Forms.Button();
             this.SpriteSheetDisplay = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).BeginInit();
@@ -123,6 +123,7 @@
             this.imageList.ItemHeight = 18;
             this.imageList.Location = new System.Drawing.Point(21, 78);
             this.imageList.Name = "imageList";
+            this.imageList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.imageList.Size = new System.Drawing.Size(335, 166);
             this.imageList.TabIndex = 5;
             // 
@@ -365,11 +366,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog openImages;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label finalDimentions;
         private System.Windows.Forms.Button info;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
