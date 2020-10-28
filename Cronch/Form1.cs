@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Cronch
@@ -21,7 +23,7 @@ namespace Cronch
         private List<string> fileNames = new List<string>();
 
         //The temp folder directory
-        private string tempDirectory = $"{Directory.GetCurrentDirectory()}\\temp";
+        private string tempDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\CronchTemp";
 
         //The final image stats
         private int columns;
@@ -299,5 +301,6 @@ namespace Cronch
             About about = new About();
             about.Show();
         }
+
     }
 }
