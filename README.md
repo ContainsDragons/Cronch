@@ -33,7 +33,7 @@ All images have to be tha same size
 ## Changelog
 
 **1.0.0**: 
-changed temp directory to %AppData%
+changed temp directory to `C:\Users\name\AppData\Roaming\CronchTemp\`
 
 **1.0.1**:
 fixed error (read desc of commit fe84746)
