@@ -54,6 +54,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openAnimation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).BeginInit();
@@ -80,6 +81,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.HeightValue);
             this.groupBox1.Controls.Add(this.widthValue);
+            this.groupBox1.Font = new System.Drawing.Font("Sniglet", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(740, 161);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(374, 339);
@@ -312,12 +314,26 @@
             this.progressBar1.TabIndex = 13;
             this.progressBar1.UseWaitCursor = true;
             // 
+            // openAnimation
+            // 
+            this.openAnimation.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.openAnimation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openAnimation.Font = new System.Drawing.Font("Sniglet", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openAnimation.Location = new System.Drawing.Point(980, 61);
+            this.openAnimation.Name = "openAnimation";
+            this.openAnimation.Size = new System.Drawing.Size(135, 73);
+            this.openAnimation.TabIndex = 14;
+            this.openAnimation.Text = "Animation Viewer";
+            this.openAnimation.UseVisualStyleBackColor = false;
+            this.openAnimation.Click += new System.EventHandler(this.openAnimation_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1127, 931);
+            this.Controls.Add(this.openAnimation);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.info);
@@ -371,6 +387,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button openAnimation;
     }
 }
 

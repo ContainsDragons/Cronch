@@ -45,23 +45,7 @@ namespace Cronch
             timer1.Start(); //wavy text
             progressBar1.Visible = false; //makes the bar not visible
         }
-        /*
-        private void Form_FormClosing(object sender, FormClosedEventArgs e)
-        {
-            if (!hasSaved)
-            {
-                if (MessageBox.Show("You have unsaved changes! Are you sure you want to exit?", "Wait!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                {
-                    return;
-                }
-            }
-            if (File.Exists($"{tempDirectory}\\tempSheet.png"))
-            {
-                File.Delete($"{tempDirectory}\\tempSheet.png");
-            }
-            Directory.Delete(tempDirectory);
-        }
-        */
+
 
         /// <summary>
         /// This is for the wavy text
@@ -304,5 +288,16 @@ namespace Cronch
             about.Show();
         }
 
+        private void openAnimation_Click(object sender, EventArgs e)
+        {
+            if (filePaths.Count < 2)
+            {
+                MessageBox.Show($"There must be more than two images!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            AnimationViewer anim = new AnimationViewer();
+            anim.Show();
+            anim.GetImages(fileNames, filePaths);
+        }
     }
 }

@@ -25,12 +25,25 @@ namespace Cronch
 
         private void label2_Click(object sender, EventArgs e)
         {
+            linkLabel1.LinkVisited = true;
             Process.Start("https://github.com/ContainsDragons");
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+            Process.Start("https://fonts.google.com/specimen/Sniglet");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+            Process.Start("https://github.com/ContainsDragons/Cronch");
         }
     }
 }
