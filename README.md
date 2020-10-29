@@ -43,7 +43,7 @@ Better algorithm for packing sprites
 ## Changelog:
 
 **1.1.0**:<br>
-Added Animation Viewer!
+Added Animation Viewer! [Tutorial](Cronch/Releases/1.1.0/README.md)
 
 
 **1.0.3**:<br>
