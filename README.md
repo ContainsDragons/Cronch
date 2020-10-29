@@ -30,7 +30,7 @@
 
 All images have to be the same size
 
-## Upcoming Features:
+## Upcoming Features (Might not happen but I might try!):
 
 All images can bu differnt sizes
 
