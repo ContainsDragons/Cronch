@@ -57,11 +57,6 @@ if (!boolName) //yes
 
 9: Make a new branch with your name
 
-10: Versioning goes like this:<br>
-**1** = Major (big update, big new feature) <br>
-.<br>
-**0** = Medium (small new feature)<br>
-.<br>
-**0** = Minor (small bug fix, typo)
+10: Use sematic versioning [See Here](https://semver.org/)
 
 11: Have fun!

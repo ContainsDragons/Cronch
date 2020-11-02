@@ -55,11 +55,14 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openAnimation = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.paddingValue = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpriteSheetDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -74,6 +77,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.paddingValue);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.addImages);
             this.groupBox1.Controls.Add(this.imageList);
@@ -84,7 +89,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Sniglet", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(740, 161);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(374, 339);
+            this.groupBox1.Size = new System.Drawing.Size(374, 381);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
@@ -96,7 +101,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.button1.Location = new System.Drawing.Point(17, 254);
+            this.button1.Location = new System.Drawing.Point(16, 308);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 57);
             this.button1.TabIndex = 7;
@@ -110,7 +115,7 @@
             this.addImages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addImages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addImages.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImages.Location = new System.Drawing.Point(189, 254);
+            this.addImages.Location = new System.Drawing.Point(188, 308);
             this.addImages.Name = "addImages";
             this.addImages.Size = new System.Drawing.Size(166, 57);
             this.addImages.TabIndex = 6;
@@ -123,7 +128,7 @@
             this.imageList.Font = new System.Drawing.Font("Sniglet", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imageList.FormattingEnabled = true;
             this.imageList.ItemHeight = 18;
-            this.imageList.Location = new System.Drawing.Point(21, 78);
+            this.imageList.Location = new System.Drawing.Point(20, 132);
             this.imageList.Name = "imageList";
             this.imageList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.imageList.Size = new System.Drawing.Size(335, 166);
@@ -182,7 +187,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Sniglet", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(740, 520);
+            this.button2.Location = new System.Drawing.Point(742, 566);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(373, 105);
             this.button2.TabIndex = 3;
@@ -196,7 +201,7 @@
             this.Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Sniglet", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(792, 649);
+            this.Save.Location = new System.Drawing.Point(792, 699);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(264, 68);
             this.Save.TabIndex = 4;
@@ -263,7 +268,7 @@
             // 
             this.finalDimentions.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finalDimentions.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.finalDimentions.Location = new System.Drawing.Point(769, 720);
+            this.finalDimentions.Location = new System.Drawing.Point(769, 770);
             this.finalDimentions.Name = "finalDimentions";
             this.finalDimentions.Size = new System.Drawing.Size(312, 67);
             this.finalDimentions.TabIndex = 10;
@@ -327,6 +332,32 @@
             this.openAnimation.UseVisualStyleBackColor = false;
             this.openAnimation.Click += new System.EventHandler(this.openAnimation_Click);
             // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Sniglet", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(109, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 43);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Padding";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // paddingValue
+            // 
+            this.paddingValue.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paddingValue.Location = new System.Drawing.Point(188, 79);
+            this.paddingValue.Name = "paddingValue";
+            this.paddingValue.Size = new System.Drawing.Size(80, 34);
+            this.paddingValue.TabIndex = 8;
+            this.paddingValue.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.paddingValue.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpriteSheetDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,6 +420,8 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button openAnimation;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown paddingValue;
     }
 }
 

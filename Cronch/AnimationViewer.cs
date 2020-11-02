@@ -80,6 +80,10 @@ namespace Cronch
         /// <param name="e"></param>
         private void play_Click(object sender, EventArgs e)
         {
+            if (addedFrames.Count == 0 || addedFrames == null)
+            {
+                return;
+            }
             speed = (int)speedbox.Value; //speed
             timer1.Interval = 1000 / speed; //FPS (kind of)
             isPaused = false;

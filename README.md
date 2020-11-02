@@ -26,25 +26,22 @@
 
 10: Your done! :D
 
-## Notes:
-
-All images have to be the same size
 
 ## Upcoming Features (Might not happen but I might try!):
 
-All images can bu differnt sizes
-
 Sprite rotation
-
-Better algorithm for packing sprites
 
 # If used in a project, credit is not needed but would be nice :)
 
 ## Changelog:
 
+**2.0.0**:<br>
+Rewrote the sprite packing system! YAY<br>
+Added padding<br>
+All images can now be different sizes! (Woo Hoo!)
+
 **1.1.0**:<br>
 Added Animation Viewer! [Tutorial](Cronch/Releases/1.1.0/README.md)
-
 
 **1.0.3**:<br>
 (hopefully)fixed a bug that would break the progress bar and stop the program

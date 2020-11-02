@@ -7,11 +7,13 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Cronch
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        #region Vars
         //These are for the wavy letters
         private int[] offset = { 3, 3, 4, 4, 5, 5 };
         private bool[] isMovingDown = { false, false, false, false, false, false };
@@ -38,6 +40,13 @@ namespace Cronch
         private List<int> allImageWidths = new List<int>();
         private List<int> allImageHeights = new List<int>();
 
+        private List<Image> newCroppedImages = new List<Image>();
+
+        private int imagePadding;
+
+        #endregion
+
+        #region Constructor
         public Form()
         {
             InitializeComponent();
@@ -45,8 +54,9 @@ namespace Cronch
             timer1.Start(); //wavy text
             progressBar1.Visible = false; //makes the bar not visible
         }
+        #endregion
 
-
+        #region Wavy Letters
         /// <summary>
         /// This is for the wavy text
         /// </summary>
@@ -79,6 +89,9 @@ namespace Cronch
 
         }
 
+        #endregion
+
+        #region Get And Remove Images
         //opens file dialogue
         private void addImages_Click(object sender, EventArgs e)
         {
@@ -130,6 +143,9 @@ namespace Cronch
             }
         }
 
+        #endregion
+
+        #region Compile Images
         /// <summary>
         /// button2 is the "Cronch" button
         /// </summary>
@@ -194,12 +210,66 @@ namespace Cronch
 
             //Debug.WriteLine(imageHeight);
             //Debug.WriteLine(imageWidth); 
+
             MergeImages();
 
-            finalDimentions.Text =
-                "Image Dimentions:" +
-                $"\nWidth: {imageWidth}px Height: {imageHeight}px";
+        }
 
+        /// <summary>
+        /// THIS CODE BELOW WAS WRITTEN BY https://stackoverflow.com/a/3271475 on stack overflow
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns>A cropped image</returns>
+        private Bitmap CropImage(Bitmap original)
+        {
+
+            Point min = new Point(int.MaxValue, int.MaxValue);
+            Point max = new Point(int.MinValue, int.MinValue);
+
+            for (int x = 0; x < original.Width; ++x)
+            {
+                for (int y = 0; y < original.Height; ++y)
+                {
+                    Color pixelColor = original.GetPixel(x, y);
+                    if (pixelColor.A != 0)
+                    {
+                        if (x < min.X) min.X = x;
+                        if (y < min.Y) min.Y = y;
+
+                        if (x > max.X) max.X = x;
+                        if (y > max.Y) max.Y = y;
+                    }
+                }
+            }
+
+            // Create a new bitmap from the crop rectangle
+            Rectangle cropRectangle = new Rectangle(min.X, min.Y, (max.X - min.X), (max.Y - min.Y));
+            Bitmap newBitmap = new Bitmap(cropRectangle.Width, cropRectangle.Height);
+            using (Graphics g = Graphics.FromImage(newBitmap))
+            {
+                g.DrawImage(original, 0, 0, cropRectangle, GraphicsUnit.Pixel);
+            }
+
+            newBitmap = AddPadding(newBitmap); //this was written by me
+
+            return newBitmap;
+        }
+
+        /// <summary>
+        /// Surrounds the image in transparency
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        private Bitmap AddPadding(Bitmap image)
+        {
+            Bitmap biggerBitmap = new Bitmap(image.Width + imagePadding, image.Height + imagePadding); //makes image bigger
+            using (Graphics g = Graphics.FromImage(biggerBitmap))
+            {
+                //makes image in the center
+                g.TranslateTransform(biggerBitmap.Width / 2, biggerBitmap.Height / 2);
+                g.DrawImage(image, -(image.Width / 2), -(image.Height / 2), image.Width, image.Height);
+            }
+            return biggerBitmap;
         }
 
         /// <summary>
@@ -207,58 +277,103 @@ namespace Cronch
         /// </summary>
         private void MergeImages()
         {
+            //crops the images
+            foreach (var image in listOfImages)
+            {
+                newCroppedImages.Add(CropImage((Bitmap)image));
+            }
+
             //loaderbar
             progressBar1.Maximum = listOfImages.Count() + 1;
             progressBar1.Minimum = 0;
             progressBar1.Visible = true;
-            //get the first image to check for all sizes
-            int firstImageWidth, firstImageHeight;
-            firstImageWidth = listOfImages[0].Width;
-            firstImageHeight = listOfImages[0].Height;
-            foreach (var image in listOfImages)
+
+            //where to draw image
+            int currentX = 0;
+            int currentY = 0;
+
+            //largest width and height
+            int largestWidth = 0;
+            int largestHeight = 0;
+
+            //padding
+            imagePadding = (int)paddingValue.Value;
+
+            //this cycles through each image and if the image dimentions is bigger than the one in the variable, set it.
+            foreach (var item in newCroppedImages)
             {
-                if (image == listOfImages[0])
+                if (largestHeight == 0)
                 {
-                    continue;
+                    largestHeight = item.Height;
                 }
-                if (image.Width != firstImageWidth || image.Height != firstImageHeight)
+                else if (largestHeight < item.Height)
                 {
-                    MessageBox.Show($"All Images Must Be The Same Width And Height (Currently)", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    largestHeight = item.Height;
+                }
+                if (largestWidth == 0)
+                {
+                    largestWidth = item.Width;
+                }
+                else if (largestWidth < item.Width)
+                {
+                    largestWidth = item.Width;
                 }
             }
 
-            int currentX = 0; //current X pixel
-            int currentY = 0; //current Y pixel
-            Bitmap finalImage = new Bitmap(imageWidth, imageHeight); //makes the final image
-            using (Graphics g = Graphics.FromImage(finalImage))
+            //gets final width and height
+            int finalWitdth = largestWidth * columns;
+            int finalHeight = largestHeight * rows;
+
+            //final image
+            Bitmap finalImage = new Bitmap(finalWitdth, finalHeight);
+
+            //go through each image
+            for (int i = 0; i < newCroppedImages.Count; i++)
             {
-                for (int i = 0; i < listOfImages.Count; i++)
+                //Safty check (so it doesent get cut off)
+                currentX += newCroppedImages[i].Width;
+                if (currentX >= finalImage.Width)
                 {
-                    //if the X is off the image put it back and go down
-                    if (currentX >= finalImage.Width)
-                    {
-                        currentX = 0;
-                        currentY += allImageHeights.Max();
-                    }
-                    g.DrawImage(listOfImages[i], currentX, currentY); //draws the image to the final image
-                    currentX += listOfImages[i].Width; //move it to the side
-                    progressBar1.Value++; //progress bar
-                    //Debug.WriteLine($"\nCurrent Image {i} Current x: {currentX} Current y: {currentY}\n");
+                    currentX = 0;
+                    currentY += largestHeight;
                 }
+                else
+                {
+                    currentX -= newCroppedImages[i].Width;
+                }
+
+                //draw the image
+                using (Graphics g = Graphics.FromImage(finalImage))
+                {
+                    g.DrawImage(newCroppedImages[i], currentX, currentY, newCroppedImages[i].Width, newCroppedImages[i].Height);
+                    //shift next image
+                    currentX += newCroppedImages[i].Width;
+                    progressBar1.Value++;
+                }
+
             }
 
-            //save file to temp
+            //save to temp
             finalImage.Save($"{tempDirectory}\\tempSheet.png", ImageFormat.Png);
-            SpriteSheetDisplay.Image = finalImage; //set the display image
-            //clear all the lists
+            //display
+            SpriteSheetDisplay.Image = finalImage;
+
+            //clear
+            newCroppedImages.Clear();
             listOfImages.Clear();
-            allImageHeights.Clear();
-            allImageWidths.Clear();
             progressBar1.Value = 0;
             progressBar1.Visible = false;
+
+            //display dimentions
+            finalDimentions.Text =
+                "Image Dimentions:" +
+                $"\nWidth: {finalWitdth}px Height: {finalHeight}px";
+
         }
 
+        #endregion
+
+        #region Save
         /// <summary>
         /// saves the image
         /// </summary>
@@ -281,13 +396,9 @@ namespace Cronch
             }
         }
 
-        //open info
-        private void info_Click(object sender, EventArgs e)
-        {
-            About about = new About();
-            about.Show();
-        }
+        #endregion
 
+        #region Animation Viewer
         private void openAnimation_Click(object sender, EventArgs e)
         {
             if (filePaths.Count < 2)
@@ -299,5 +410,27 @@ namespace Cronch
             anim.Show();
             anim.GetImages(fileNames, filePaths);
         }
+        #endregion
+
+        #region Misc
+        //open info
+        private void info_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }
