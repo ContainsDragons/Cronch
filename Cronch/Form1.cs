@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
+using System.Drawing.Drawing2D;
 
 namespace Cronch
 {
@@ -345,7 +346,17 @@ namespace Cronch
                 //draw the image
                 using (Graphics g = Graphics.FromImage(finalImage))
                 {
-                    g.DrawImage(newCroppedImages[i], currentX, currentY, newCroppedImages[i].Width, newCroppedImages[i].Height);
+                    g.CompositingMode = CompositingMode.SourceCopy;
+                    g.CompositingQuality = CompositingQuality.HighQuality;
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                    using (var wrapMode = new ImageAttributes())
+                    {
+                        wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                        g.DrawImage(newCroppedImages[i], currentX, currentY, newCroppedImages[i].Width, newCroppedImages[i].Height);
+                    }
                     //shift next image
                     currentX += newCroppedImages[i].Width;
                     progressBar1.Value++;

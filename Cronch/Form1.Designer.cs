@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.title = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.paddingValue = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.addImages = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ListBox();
@@ -55,14 +57,12 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openAnimation = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.paddingValue = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpriteSheetDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -93,6 +93,32 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Sniglet", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(109, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 43);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Padding";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // paddingValue
+            // 
+            this.paddingValue.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paddingValue.Location = new System.Drawing.Point(188, 79);
+            this.paddingValue.Name = "paddingValue";
+            this.paddingValue.Size = new System.Drawing.Size(80, 34);
+            this.paddingValue.TabIndex = 8;
+            this.paddingValue.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.paddingValue.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // button1
             // 
@@ -291,7 +317,7 @@
             // 
             // SpriteSheetDisplay
             // 
-            this.SpriteSheetDisplay.BackgroundImage = global::Cronch.Properties.Resources.chaecker;
+            this.SpriteSheetDisplay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SpriteSheetDisplay.BackgroundImage")));
             this.SpriteSheetDisplay.Location = new System.Drawing.Point(24, 162);
             this.SpriteSheetDisplay.Name = "SpriteSheetDisplay";
             this.SpriteSheetDisplay.Size = new System.Drawing.Size(700, 700);
@@ -332,32 +358,6 @@
             this.openAnimation.UseVisualStyleBackColor = false;
             this.openAnimation.Click += new System.EventHandler(this.openAnimation_Click);
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Sniglet", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(109, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 43);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Padding";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // paddingValue
-            // 
-            this.paddingValue.Font = new System.Drawing.Font("Sniglet", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paddingValue.Location = new System.Drawing.Point(188, 79);
-            this.paddingValue.Name = "paddingValue";
-            this.paddingValue.Size = new System.Drawing.Size(80, 34);
-            this.paddingValue.TabIndex = 8;
-            this.paddingValue.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.paddingValue.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,11 +384,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cronch";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpriteSheetDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paddingValue)).EndInit();
             this.ResumeLayout(false);
 
         }

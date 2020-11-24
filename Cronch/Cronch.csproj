@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon.ico" />
+    <None Include="Resources\checkergrid.png" />
     <Content Include="thing.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

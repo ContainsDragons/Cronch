@@ -63,9 +63,9 @@ namespace Cronch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap chaecker {
+        internal static System.Drawing.Bitmap checkergrid {
             get {
-                object obj = ResourceManager.GetObject("chaecker", resourceCulture);
+                object obj = ResourceManager.GetObject("checkergrid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -81,12 +81,12 @@ namespace Cronch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap logo_bg {
+        internal static System.Drawing.Icon icon1 {
             get {
-                object obj = ResourceManager.GetObject("logo_bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("icon1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

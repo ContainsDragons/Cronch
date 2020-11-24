@@ -50,7 +50,7 @@
             // 
             // frameDisplay
             // 
-            this.frameDisplay.BackgroundImage = global::Cronch.Properties.Resources.chaecker;
+            this.frameDisplay.BackgroundImage = global::Cronch.Properties.Resources.checkergrid;
             this.frameDisplay.Location = new System.Drawing.Point(23, 26);
             this.frameDisplay.Name = "frameDisplay";
             this.frameDisplay.Size = new System.Drawing.Size(700, 700);
